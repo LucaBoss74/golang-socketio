@@ -23,13 +23,24 @@ type Client struct {
 Get ws/wss url by host and port
  */
 func GetUrl(host string, port int, secure bool) string {
+	return GetUrlWithPath(host, port, secure, '')
+}
+
+/**
+Get ws/wss url by host, port and path
+*/
+func GetUrlWithPath(host string, port int, secure bool, path string) string {
 	var prefix string
 	if secure {
 		prefix = webSocketSecureProtocol
 	} else {
 		prefix = webSocketProtocol
 	}
-	return prefix + host + ":" + strconv.Itoa(port) + socketioUrl
+	if path != "" {
+		workString := strings.ReplaceAll(socketioUrl, "/socket.io/", fmt.Sprintf("%s/", path))
+		return prefix + net.JoinHostPort(host, strconv.Itoa(port)) + workString
+	}
+	return prefix + net.JoinHostPort(host, strconv.Itoa(port)) + socketioUrl
 }
 
 /**
