@@ -23,7 +23,7 @@ type Client struct {
 }
 
 /**
-Get ws/wss url by host and port
+Get ws/wss url by host and port - wrapper for GetUrlWithPath
  */
 func GetUrl(host string, port int, secure bool) string {
 	return GetUrlWithPath(host, port, secure, "")
