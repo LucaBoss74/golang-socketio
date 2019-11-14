@@ -1,6 +1,7 @@
 package gosocketio
 
 import (
+	"net"
 	"fmt"
 	"strings"
 	"github.com/graarh/golang-socketio/transport"
