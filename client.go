@@ -4,7 +4,7 @@ import (
 	"net"
 	"fmt"
 	"strings"
-	"github.com/graarh/golang-socketio/transport"
+	"github.com/LucaBoss74/golang-socketio/transport"
 	"strconv"
 )
 
